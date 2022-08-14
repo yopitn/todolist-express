@@ -1,0 +1,170 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v21/6xK1dSBYKcSV-LCoeQqfX1RYOo3qPZ7nsDI.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v21/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/sourcesanspro/v21/6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZclSds18Q.woff2) format('woff2');
+}
+
+*,
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin: 0;
+  font-weight: 700;
+  color: var(--title-color)
+}
+
+h1,
+.h1 {
+  font-size: 1.9rem
+}
+
+h2,
+.h2 {
+  font-size: 1.7rem
+}
+
+h3,
+.h3 {
+  font-size: 1.5rem
+}
+
+h4,
+.h4 {
+  font-size: 1.4rem
+}
+
+h5,
+.h5 {
+  font-size: 1.3rem
+}
+
+h6,
+.h6 {
+  font-size: 1.2rem
+}
+
+a {
+  color: #2C4BFF;
+  text-decoration: none
+}
+
+a:hover {
+  opacity: .7;
+  transition: opacity .15s
+}
+
+table {
+  border-spacing: 0
+}
+
+iframe {
+  max-width: 100%;
+  border: 0;
+  margin-left: auto;
+  margin-right: auto
+}
+
+input,
+button,
+select,
+textarea {
+  font: inherit;
+  font-size: 100%;
+  color: inherit;
+  line-height: normal;
+  vertical-align: baseline
+}
+
+img {
+  display: block;
+  position: relative;
+  max-width: 100%;
+  height: auto
+}
+
+figure {
+  margin: 20px auto;
+  text-align: center
+}
+
+svg {
+  width: 20px;
+  height: 20px;
+  fill: #08102b
+}
+
+svg.line,
+svg .line {
+  fill: none !important;
+  stroke: #08102b;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1
+}
+
+/* Main Element */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0 !important;
+  width: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  color: #273239;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  word-break: break-word;
+  transition: .1s ease
+}
+
+.container {
+  max-width: calc(860px - 50px);
+  margin: 0 auto;
+  padding: 0 25px
+}
+
+.main-wrap {
+  padding-top: 30px;
+}
