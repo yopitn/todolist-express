@@ -1,14 +1,16 @@
 const express = require('express')
 const router = express.Router()
 
-const controllers = require('../controllers')
+const controller = require('../controllers')
+const service = require('../services')
 
-
+// Views
+router.get('/', service.getTodo)
 
 // API
-router.get('/api', controllers.findAll)
-router.post('/api', controllers.create)
-router.put('/api', controllers.update)
-router.delete('/api', controllers.delete)
+router.get('/api/todo', controller.findAll)
+router.post('/api/todo', controller.create)
+router.put('/api/todo', controller.update)
+router.delete('/api/todo', controller.delete)
 
 module.exports = router

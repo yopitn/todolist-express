@@ -13,6 +13,14 @@ exports.findAll = async (req, res) => {
 }
 
 exports.create = async (req, res) => {
+  if (!req.body.title) {
+    res.json({message: "Title cannot be blank."})
+  }
+
+  if (!req.body.completed) {
+    req.body.completed = false
+  }
+
   const data = await knex
     .insert(req.body)
     .into('todolist')
