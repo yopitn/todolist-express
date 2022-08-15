@@ -1,23 +1,43 @@
+<div class="todo-title">
+  <h1>
+    <span class="title">Detail Your Taks</span>
+  </h1>
+</div>
+
 <div class="todo-content">
-  <div class="todo-container">
-    <div class="todo-data">
-      <table>
-        <tr>
-          <td>Title</td>
-          <td>{{title}}</td>
-        </tr>
+  <div class="todo-subtitle">
+    <h2>
+      <span class="title">Detail</span>
+    </h2>
+  </div>
 
-        <tr>
-          <td>Title</td>
-          <td>{{title}}</td>
-        </tr>
-      </table>
-    </div>
 
-    <div class="todo-action">
-      <a href="#" class="btn" role="button">
-        <span class="text">Delete</span>
-      </a>
-    </div>
+  <div class="todo-data">
+    <table>
+      <tr>
+        <td>Title</td>
+        <td>{{todos.title}}</td>
+      </tr>
+
+      <tr>
+        <td>Completed</td>
+        <td>{{todos.completed}}</td>
+      </tr>
+
+      <tr>
+        <td>Created</td>
+        <td>{{todos.created_at}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="todo-action">
+    <a href="/update/{{todos.id}}" class="btn update" role="button">
+      <span class="text">{{todos.text.completed}}</span>
+    </a>
+
+    <a href="/delete/{{todos.id}}" class="btn delete" role="button">
+      <span class="text">Delete</span>
+    </a>
   </div>
 </div>

@@ -1,5 +1,6 @@
 const knex = require('../database')
 
+// Find All Todo
 exports.findAll = async (req, res) => {
   const data = await knex
     .select()
@@ -12,6 +13,7 @@ exports.findAll = async (req, res) => {
   }
 }
 
+// Find Todo by ID
 exports.findById = async (req, res) => {
   const id = req.params.id
 
@@ -29,6 +31,7 @@ exports.findById = async (req, res) => {
   }
 }
 
+// Create Todo
 exports.create = async (req, res) => {
   if (!req.body.title) {
     res.json({message: "Title cannot be blank."})
@@ -49,6 +52,7 @@ exports.create = async (req, res) => {
   }
 }
 
+// Update Todo
 exports.update = async (req, res) => {
   const id = req.params.id
 
@@ -66,6 +70,7 @@ exports.update = async (req, res) => {
   }
 }
 
+// Delete Todo
 exports.delete = async (req, res) => {
   const id = req.params.id
 

@@ -14,7 +14,7 @@
   <div class="todo-container">
     <ul>
       {{#each todos}}
-        <li>
+        <li {{#if completed}} class="completed" {{/if}}>
           <a href="/detail/{{id}}" class="link">
             <span class="text">{{title}}</span>
           </a>

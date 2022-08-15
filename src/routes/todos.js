@@ -6,8 +6,11 @@ const service = require('../services')
 
 // Views
 router.get('/', service.home)
+router.post('/', service.created)
 router.get('/create', service.create)
 router.get('/detail/:id', service.detail)
+router.get('/update/:id', service.update)
+router.get('/delete/:id', service.delete)
 
 // API
 router.get('/api', controller.findAll)

@@ -1,1 +1,31 @@
-<p>test</p>
+<div class="todo-title">
+  <h1>
+    <span class="title">Create New!</span>
+  </h1>
+</div>
+
+<div class="todo-content">
+  <div class="todo-subtitle">
+    <h2>
+      <span class="title">Create</span>
+    </h2>
+  </div>
+
+  <div class="todo-form">
+    <form method="post" action="/" id="addTodo">
+      <div class="form-text">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" autocomplete="off" required>
+      </div>
+
+      <div class="form-checkbox">
+        <input type="checkbox" name="completed" id="completed" class="hidden">
+        <label for="completed">Set as completed?</label>
+      </div>
+
+      <div class="form-button">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

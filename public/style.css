@@ -111,6 +111,10 @@ svg .line {
   stroke-width: 1
 }
 
+.hidden {
+  display: none;
+}
+
 /* Main Element */
 html {
   scroll-behavior: smooth;
@@ -129,7 +133,8 @@ body {
   background-color: #d6def5;
   -webkit-font-smoothing: antialiased;
   word-break: break-word;
-  transition: .1s ease
+  overflow: hidden;
+  transition: .1s ease;
 }
 
 .container {
@@ -179,10 +184,10 @@ body {
 }
 
 .todo-container {
-  background-color: #ffffff;
-  padding:10px 20px;
-  border-radius: 24px;
+  height: 390px;
   font-size: 14px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .todo-container ul {
@@ -190,10 +195,16 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
+  line-height: 1.6em;
 }
 
 .todo-container ul li {
-  padding: 10px 0
+  padding: 8px 0
+}
+
+.todo-container .completed {
+  text-decoration: line-through;
+  opacity: .5;
 }
 
 .todo-container .link {
@@ -214,8 +225,180 @@ body {
   opacity: .8;
 }
 
+.todo-container::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+}
+
+.todo-container:hover::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.todo-container::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.15);
+  border-radius: 10px;
+}
+
+.todo-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,.25);
+}
+
+.todo-container::-webkit-scrollbar-thumb:active {
+  background: rgba(0,0,0,.25);
+}
+
+.todo-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.todo-form form {
+  width: 100%;
+  font-size: 13px;
+}
+
+.todo-form form > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.todo-form .form-text input[type=text] {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, .1);
+  outline: none;
+  padding: 12px 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
+}
+
+.todo-form .form-text label {
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.todo-form .form-checkbox label {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.todo-form .form-checkbox label::before {
+  flex-shrink: 0;
+  content: '';
+  width: 14px;
+  height: 14px;
+  background-color: transparent;
+  border: 1px solid #212952;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.todo-form .form-checkbox input:checked ~ label::before {
+  background-color: #212952;
+}
+
+.todo-form .form-checkbox input:checked ~ label::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border-width: 0 1px 1px 0;
+  border-color: white;
+  border-style: solid;
+  transform: rotate(45deg);
+}
+
+.todo-form .form-button {
+  position: absolute;
+  left: 0;
+  bottom: 25px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.todo-form .form-button button {
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 12px 10px;
+  border-radius: 6px;
+  background-color: #212952;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
+}
+
 .todo-data {
-  /* Soon */
+  font-size: 13px;
+}
+
+.todo-data table {
+  width: 100%;
+  margin-bottom: 40px;
+  line-height: 1.4em;
+}
+
+.todo-data table tr:last-child td {
+  border-bottom: 1px solid rgba(0, 0, 0, .15);
+}
+
+.todo-data table tr td:first-child {
+  border-left: 1px solid rgba(0, 0, 0, .15);
+}
+
+.todo-data table tr:first-child td:first-child {
+  border-radius: 6px 0 0 0;
+}
+
+.todo-data table tr:first-child td:last-child {
+  border-radius: 0 6px 0 0;
+}
+
+.todo-data table tr:last-child td:first-child {
+  border-radius: 0 0 0 6px;
+}
+
+.todo-data table tr:last-child td:last-child {
+  border-radius: 0 0 6px 0;
+}
+
+.todo-data table td {
+  border-top: 1px solid rgba(0, 0, 0, .15);
+  border-right: 1px solid rgba(0, 0, 0, .15);
+  padding: 12px 10px
+}
+
+.todo-action {
+  position: absolute;
+  left: 0;
+  bottom: 25px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.todo-action .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 12px 10px;
+  font-size: 13px;
+  color: #ffffff;
+  background-color: #8d1111;
+  border-radius: 0 6px 6px 0;
+}
+
+.todo-action .btn.update {
+  border-radius: 6px 0 0 6px;
+  background-color: #145e24;
 }
 
 .todo-add {
@@ -278,11 +461,11 @@ body {
   background: #212952;
   color: #ffffff;
   border-radius: 500px;
-  font-size: .7rem;
+  font-size: .8rem;
 }
 
 /* Responsive */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 480px) {
   .app {
     position: fixed;
     top: 50%;
