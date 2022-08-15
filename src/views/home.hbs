@@ -1,0 +1,33 @@
+<div class="todo-title">
+  <h1>
+    <span class="title">What's Up, Banba!</span>
+  </h1>
+</div>
+
+<div class="todo-content">
+  <div class="todo-subtitle">
+    <h2>
+      <span class="title">Your Taks</span>
+    </h2>
+  </div>
+
+  <div class="todo-container">
+    <ul>
+      {{#each todos}}
+        <li>
+          <a href="/detail/{{id}}" class="link">
+            <span class="text">{{title}}</span>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div class="todo-add">
+  <a href="/create" class="link">
+    <svg viewBox="0 0 24 24">
+      <path d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+    </svg>
+  </a>
+</div>

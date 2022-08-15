@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
 const path = require('path')
 
-const todolistRoutes = require('./src/routes/todolist')
+const todosRoutes = require('./src/routes');
 
 dotenv.config()
 const PORT = process.env.PORT
@@ -14,7 +14,7 @@ const app = express()
 
 app.engine('.hbs', exphbs.engine({
   extname: '.hbs',
-  defaultLayout: null
+  defaultLayout: 'main.hbs'
 }))
 
 app.set('view engine', 'hbs');
@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, "public")))
 
-app.use('/', todolistRoutes)
+app.use('/', todosRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://${HOST}:${PORT}`)

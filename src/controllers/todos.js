@@ -12,6 +12,23 @@ exports.findAll = async (req, res) => {
   }
 }
 
+exports.findById = async (req, res) => {
+  const id = req.params.id
+
+  const data = await knex
+    .select()
+    .where({
+      id
+    })
+    .from('todolist')
+
+  try {
+    res.json(data)
+  } catch (err) {
+    res.json({message: err})
+  }
+}
+
 exports.create = async (req, res) => {
   if (!req.body.title) {
     res.json({message: "Title cannot be blank."})
@@ -33,11 +50,13 @@ exports.create = async (req, res) => {
 }
 
 exports.update = async (req, res) => {
+  const id = req.params.id
+
   const data = await knex
   .update(req.body)
   .from('todolist')
   .where({
-    id: req.body.id
+    id
   })
 
   try {
@@ -48,11 +67,13 @@ exports.update = async (req, res) => {
 }
 
 exports.delete = async (req, res) => {
+  const id = req.params.id
+
   const data = await knex
   .del()
   .from('todolist')
   .where({
-    id: req.body.id
+    id
   })
 
   try {
